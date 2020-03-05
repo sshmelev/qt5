@@ -162,7 +162,7 @@ class MainWindow(QWidget):
         horizontal_slider_move_y.valueChanged.connect(move)
 
         self.setLayout(grid)
-        self.setGeometry(0, 0, 500, 550)
+        self.setGeometry(0, 0, 700, 700)
         self.setWindowTitle('Review')
         self.show()
 
