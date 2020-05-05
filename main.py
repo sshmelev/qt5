@@ -144,6 +144,46 @@ class MainWindow(QWidget):
                 print('error')
             print('scale: ', s)
 
+        def recolor():
+            # получение значения с комбобокса
+            color = combo_box_color.currentText()
+
+            if color == 'Белый':
+                r = 255
+                g = 255
+                b = 255
+            elif color == 'Черный':
+                r = 0
+                g = 0
+                b = 0
+            elif color == 'Зеленый':
+                r = 0
+                g = 255
+                b = 0
+            elif color == 'Синий':
+                r = 0
+                g = 0
+                b = 255
+            elif color == 'Красный':
+                r = 255
+                g = 0
+                b = 0
+            else:
+                r = 0
+                g = 0
+                b = 0
+
+            # получение статуса радиокнопок и выполнение нужного действия
+            if radio_button_circle.isChecked():
+                circle1.recolor_circle(r, g, b)
+            elif radio_button_square.isChecked():
+                square1.recolor_square(r, g, b)
+            elif radio_button_triangle.isChecked():
+                triangle1.recolor_triangle(r, g, b)
+            else:
+                print('error')
+            print('recolor: ', color)
+
         # Отрисовка
 
         square1 = Square(0, 0, 250, 250)
@@ -155,11 +195,12 @@ class MainWindow(QWidget):
         triangle1 = Triangle(0, 0, 0, 250, 250, 250)
         triangle1.draw_triangle(scene)
 
-        # Активация функций слайдерами
+        # Активация функций слайдерами и комбобоксу
         horizontal_slider_rotate.valueChanged.connect(rotate)
         horizontal_slider_size.valueChanged.connect(scale)
         horizontal_slider_move_x.valueChanged.connect(move)
         horizontal_slider_move_y.valueChanged.connect(move)
+        combo_box_color.currentTextChanged.connect(recolor)
 
         self.setLayout(grid)
         self.setGeometry(0, 0, 700, 700)
