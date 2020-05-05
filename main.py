@@ -188,6 +188,9 @@ class Square(QGraphicsView):
     def scale_square(self, s):
         self.square.setScale((s + 50) / 100)
 
+    def recolor_square(self, r, g, b):
+        self.square.setBrush(QColor(r, g, b))
+
 
 class Сircle(QGraphicsView):
 
@@ -197,6 +200,7 @@ class Сircle(QGraphicsView):
         self.w = w
         self.h = h
         self.circle = QGraphicsEllipseItem(self.x, self.y, self.w, self.h)
+
 
     def draw_circle(self, scene):
         scene.addItem(self.circle)
@@ -209,6 +213,9 @@ class Сircle(QGraphicsView):
 
     def scale_circle(self, s):
         self.circle.setScale((s + 50) / 100)
+
+    def recolor_circle(self, r, g, b):
+        self.circle.setBrush(QColor(r, g, b))
 
 class Triangle(QGraphicsView):
 
@@ -237,6 +244,9 @@ class Triangle(QGraphicsView):
 
     def scale_triangle(self, s):
         self.triangle.setScale((s + 50) / 100)
+
+    def recolor_triangle(self, r, g, b):
+        self.triangle.setBrush(QColor(r, g, b))
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
